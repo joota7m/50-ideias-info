@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>50 Ideias Lucrativas de Infoprodutos Validadas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --laranja: #F97316;
+      --laranja-escuro: #EA580C;
+      --laranja-glow: rgba(249,115,22,0.25);
+      --bg: #0F0F0F;
+      --bg-card: #1A1A1A;
+      --bg-card2: #141414;
+      --border: #2A2A2A;
+      --text: #F5F5F5;
+      --text-muted: #A3A3A3;
+      --text-dark: #6B6B6B;
+      --verde: #22C55E;
+      --fonte: 'Inter', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--fonte);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3A3A3A; }
+
+    /* WRAPPER */
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* GRID BG */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .reveal-delay-1 { animation-delay: 0.2s; }
+    .reveal-delay-2 { animation-delay: 0.4s; }
+    .reveal-delay-3 { animation-delay: 0.6s; }
+
+    /* ========================
+       HERO
+    ======================== */
+    .hero {
+      padding: 80px 24px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 40px; }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 24px;
+    }
+
+    .badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--laranja);
+      position: relative;
+    }
+
+    .badge-dot::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: var(--laranja);
+      opacity: 0.4;
+      animation: ping 1.5s ease-in-out infinite;
+    }
+
+    @keyframes ping {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.6); opacity: 0; }
+    }
+
+    .badge span {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--laranja);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--laranja); }
+
+    .hero p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 460px;
+      margin-bottom: 32px;
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--laranja);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px var(--laranja-glow);
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      background: var(--laranja-escuro);
+      box-shadow: 0 12px 40px rgba(249,115,22,0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-microcopy {
+      display: block;
+      margin-top: 12px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dark);
+    }
+
+    /* HERO CARDS */
+    .hero-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card:hover { 
+      border-color: rgba(249,115,22,0.4); 
+      transform: translateX(4px);
+      background: #222;
+    }
+
+    .card.active { 
+      border-color: var(--laranja);
+      box-shadow: 0 0 20px rgba(249,115,22,0.1);
+    }
+
+    .card-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(249,115,22,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--laranja);
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .card-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--laranja);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    /* ========================
+       SECTION BASE
+    ======================== */
+    section {
+      border-top: 1px solid var(--border);
+      padding: 64px 24px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 32px;
+    }
+
+    /* ========================
+       CHANGELOG
+    ======================== */
+    .changelog {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .changelog-grid {
+      display: grid;
+      grid-template-columns: 220px 1px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .changelog-grid { grid-template-columns: 1fr; }
+      .changelog-divider { display: none; }
+    }
+
+    .changelog-divider { background: var(--border); }
+
+    .changelog-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(249,115,22,0.3);
+      background: rgba(249,115,22,0.07);
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin-top: 10px;
+    }
+
+    .changelog-badge span:first-child {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--laranja);
+    }
+
+    .changelog-badge span:last-child {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .changelog-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .changelog-item {
+      display: flex;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+    
+    .changelog-item:hover {
+      color: var(--text);
+    }
+
+    .changelog-item .plus {
+      color: var(--laranja);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .changelog-item strong { color: var(--text); }
+
+    /* ========================
+       EXPLORER / WORKSPACE
+    ======================== */
+    .workspace {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .explorer-box {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .explorer-inner {
+      display: grid;
+      grid-template-columns: 200px 1px 1fr 1px 240px;
+    }
+
+    @media (max-width: 900px) {
+      .explorer-inner { grid-template-columns: 1fr; }
+      .explorer-divider { display: none; }
+    }
+
+    .explorer-divider { background: var(--border); }
+
+    .explorer-sidebar {
+      background: var(--bg-card2);
+      padding: 20px 16px;
+    }
+
+    .explorer-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .file-item:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+    .file-item.active { background: rgba(249,115,22,0.1); color: var(--laranja); }
+
+    .explorer-main {
+      padding: 32px;
+      background: var(--bg-card2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      position: relative;
+    }
+
+    .price-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      width: 100%;
+      max-width: 300px;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .price-card:hover {
+      transform: scale(1.05) rotate(1deg);
+    }
+
+    .price-highlight {
+      position: absolute;
+      inset: -2px;
+      border-radius: 14px;
+      border: 2px solid var(--laranja);
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .price-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--laranja);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(249,115,22,0.3);
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price-row:last-child { border-bottom: none; }
+    .price-row span:last-child { color: var(--laranja); }
+
+    .explorer-props {
+      background: var(--bg-card2);
+      padding: 20px 16px;
+    }
+
+    .prop-section-title {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--laranja);
+      margin-bottom: 10px;
+      margin-top: 16px;
+    }
+
+    .prop-section-title:first-child { margin-top: 0; }
+
+    .prop-row {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 6px;
+      margin-bottom: 6px;
+      align-items: center;
+    }
+
+    .prop-key {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dark);
+    }
+
+    .prop-val {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 6px;
+    }
+
+    .toggle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .toggle-key {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .toggle {
+      width: 28px; height: 16px;
+      background: var(--laranja);
+      border-radius: 999px;
+      padding: 2px;
+      display: flex;
+      justify-content: flex-end;
+      transition: background 0.3s;
+    }
+
+    .toggle-dot {
+      width: 12px; height: 12px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    /* ========================
+       README
+    ======================== */
+    .readme-section {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .readme-box {
+      border: 1px solid #2A2A2A;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    }
+
+    .readme-header {
+      background: #141414;
+      border-bottom: 1px solid #2A2A2A;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .readme-header svg { color: #6B6B6B; }
+
+    .readme-header span {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #A3A3A3;
+    }
+
+    .readme-body {
+      background: #0A0A0A;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .readme-block h3 {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--laranja);
+      margin-bottom: 12px;
+    }
+
+    .readme-block p {
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.8;
+      color: #A3A3A3;
+    }
+
+    .readme-cmd {
+      background: #141414;
+      border: 1px solid #2A2A2A;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .readme-cmd::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+      animation: scan 3s linear infinite;
+    }
+    
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .readme-cmd p {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--laranja);
+    }
+
+    /* ========================
+       STATS
+    ======================== */
+    .stats-section { max-width: 1100px; margin: 0 auto; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    
+    .stat-card:hover {
+      border-color: var(--laranja);
+    }
+
+    .stat-num {
+      font-family: var(--mono);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--laranja);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ========================
+       FAQ
+    ======================== */
+    .faq-section { max-width: 680px; margin: 0 auto; }
+
+    details {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    
+    details:hover {
+      border-color: #3A3A3A;
+    }
+
+    details summary {
+      list-style: none;
+      padding: 20px 24px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--laranja);
+      font-weight: 300;
+      transition: transform 0.3s;
+    }
+
+    details[open] summary::after { transform: rotate(45deg); }
+
+    details p {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    /* ========================
+       CTA FINAL
+    ======================== */
+    .cta-final {
+      text-align: center;
+      padding: 100px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--laranja);
+      margin-bottom: 20px;
+    }
+
+    .cta-final h2 {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    .cta-final h2 span { color: var(--laranja); }
+
+    .price-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .price-old {
+      font-family: var(--mono);
+      font-size: 16px;
+      color: var(--text-dark);
+      text-decoration: line-through;
+    }
+
+    .price-new {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .price-parcel {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .garantia {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 24px;
+      margin-top: 32px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .garantia span {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      background: #0a0a0a;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dark);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body class="grid-bg">
+
+  <!-- ======================== HERO ======================== -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="hero reveal">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>v1.0 · Validado 2026</span>
+        </div>
+        <h1>50 Ideias<br><span>Lucrativas</span> <span style="color: var(--verde);">Validadas</span></h1>
+        <p style="margin-bottom: 24px;">O pack mais direto pra quem quer entrar no mercado digital. 50 infoprodutos baseados em ofertas escalando agora — com nicho, dor, formato, ticket e dificuldade. Escolha uma. Execute hoje.</p>
+        <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px;">
+          <span class="price-old" style="font-size: 20px;">R$97</span>
+          <span style="font-size: 32px; font-weight: 700; color: var(--text);">R$49,90</span>
+        </div>
+        <a href="#oferta" class="btn-cta">
+          🔥 Quero as 50 Ideias
+        </a>
+        <span class="btn-microcopy">Acesso vitalício · 7 dias de garantia</span>
+      </div>
+
+      <div class="hero-cards reveal-delay-1">
+        <div class="card">
+          <div class="card-icon">IP</div>
+          <div>
+            <div class="card-title">Pack de Infoprodutos</div>
+            <div class="card-sub">50 ideias validadas</div>
+          </div>
+        </div>
+        <div class="card active">
+          <div style="width:100%">
+            <div class="card-tag">⚡ ação.necessária: escolher → criar → vender</div>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <div class="card-icon">DD</div>
+              <div>
+                <div class="card-title">Dados por Ideia</div>
+                <div class="card-sub">nicho · dor · ticket · dificuldade</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">FV</div>
+          <div>
+            <div class="card-title">Fonte Validada</div>
+            <div class="card-sub">ofertas escalando no Fusion Ads 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== CHANGELOG ======================== -->
+  <section class="reveal reveal-delay-2">
+    <div class="changelog wrapper">
+      <div class="changelog-grid">
+        <div>
+          <p class="section-label">Changelog</p>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">Tudo que está no pack.</p>
+          <div class="changelog-badge">
+            <span>2026</span>
+            <span>· Validado</span>
+          </div>
+        </div>
+        <div class="changelog-divider"></div>
+        <div class="changelog-items">
+          <div class="changelog-item"><span class="plus">+</span><span><strong>50 ideias de infoprodutos</strong> — organizadas por nicho com dados reais</span></div>
+          <div class="changelog-item"><span class="plus">+</span><span><strong>Nicho de cada produto</strong> — sem achismo, sem generalização</span></div>
+          <div class="changelog-item"><span class="plus">+</span><span><strong>Dor principal que cada produto resolve</strong> — não é lista genérica</span></div>
+          <div class="changelog-item"><span class="plus">+</span><span><strong>Formato sugerido</strong> — e-book, quiz, VSL, desafio, página de vendas</span></div>
+          <div class="changelog-item"><span class="plus">+</span><span><strong>Ticket recomendado</strong> — de R$17 a R$297 por produto</span></div>
+          <div class="changelog-item"><span class="plus">+</span><span><strong>Nível de dificuldade</strong> — fácil, médio ou avançado</span></div>
+          <div class="changelog-item"><span class="plus">+</span><span><strong>Baseado em dados reais</strong> — ofertas escalando no Fusion Ads 2026</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== WORKSPACE ======================== -->
+  <section class="reveal reveal-delay-3">
+    <div class="workspace wrapper">
+      <p class="section-label">Workspace</p>
+      <div class="explorer-box">
+        <div class="explorer-inner">
+          <!-- Sidebar -->
+          <div class="explorer-sidebar" id="explorer-sidebar">
+            <div class="explorer-label">Explorer</div>
+            <div class="file-item" data-price="1,00">📁 saude-emagrecimento/</div>
+            <div class="file-item" data-price="0,89">📁 renda-extra-negocios/</div>
+            <div class="file-item" data-price="1,15">📁 relacionamento/</div>
+            <div class="file-item" data-price="1,02">📁 espiritualidade/</div>
+            <div class="file-item" data-price="0,83">📁 artesanato-culinaria/</div>
+            <div class="file-item active" data-price="1,00">📄 index.md</div>
+            <div class="file-item" data-price="VITALÍCIO">📄 guia-execucao.md</div>
+          </div>
+          <div class="explorer-divider"></div>
+          <!-- Main -->
+          <div class="explorer-main">
+            <div class="price-card" id="price-card">
+              <div class="price-highlight"></div>
+              <div class="price-tag" id="price-tag">R$1,00 por ideia</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <span style="font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);">Pack Completo</span>
+                <span style="background:rgba(249,115,22,0.15);color:var(--laranja);font-family:var(--mono);font-size:11px;font-weight:700;padding:2px 10px;border-radius:999px;">R$49,90</span>
+              </div>
+              <div class="price-row"><span>Infoprodutos</span><span>50 ideias</span></div>
+              <div class="price-row"><span>Nicho</span><span>incluso</span></div>
+              <div class="price-row"><span>Dor</span><span>incluso</span></div>
+              <div class="price-row"><span>Ticket</span><span>incluso</span></div>
+              <div class="price-row"><span>Dificuldade</span><span>incluso</span></div>
+            </div>
+          </div>
+          <div class="explorer-divider"></div>
+          <!-- Props -->
+          <div class="explorer-props">
+            <div class="explorer-label">Propriedades</div>
+            <div class="prop-section-title">Conteúdo</div>
+            <div class="prop-row">
+              <span class="prop-key">Tipo</span>
+              <span class="prop-val">Pack Digital</span>
+            </div>
+            <div class="prop-row">
+              <span class="prop-key">Formato</span>
+              <span class="prop-val">Pronto p/ Executar</span>
+            </div>
+            <div class="prop-row">
+              <span class="prop-key">Qtd</span>
+              <span class="prop-val">50</span>
+            </div>
+            <div class="prop-section-title">Categorias</div>
+            <div class="tag-list">
+              <span class="tag">Saúde</span>
+              <span class="tag">Renda Extra</span>
+              <span class="tag">Relacionamento</span>
+              <span class="tag">Espiritualidade</span>
+              <span class="tag">Artesanato</span>
+            </div>
+            <div class="prop-section-title">Inclusos</div>
+            <div class="toggle-row"><span class="toggle-key">Nicho</span><div class="toggle"><div class="toggle-dot"></div></div></div>
+            <div class="toggle-row"><span class="toggle-key">Dor</span><div class="toggle"><div class="toggle-dot"></div></div></div>
+            <div class="toggle-row"><span class="toggle-key">Ticket</span><div class="toggle"><div class="toggle-dot"></div></div></div>
+            <div class="toggle-row"><span class="toggle-key">Dificuldade</span><div class="toggle"><div class="toggle-dot"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== README ======================== -->
+  <section>
+    <div class="readme-section wrapper">
+      <div class="readme-box">
+        <div class="readme-header">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span>README.md</span>
+        </div>
+        <div class="readme-body">
+          <div class="readme-block">
+            <h3># Pra quem é esse pack</h3>
+            <p>Você quer criar um infoproduto mas não sabe por onde começar.<br><br>
+            Fica travado pensando se a ideia presta antes de testar.<br><br>
+            Copia o que o concorrente faz sem saber se aquilo realmente converte.</p>
+          </div>
+          <div class="readme-block">
+            <h3># A transformação</h3>
+            <p>De "sem ideia do que criar" para "escolheu, criou e rodou o anúncio" — com 50 opções validadas por quem já está escalando no mercado.</p>
+          </div>
+          <div class="readme-block">
+            <h3># Como usar</h3>
+            <p>Abra o pack. Filtre pelo nicho que faz sentido pra você. Escolha uma ideia. Execute.</p>
+            <div class="readme-cmd">
+              <p>$ pack install 50-ideias-lucrativas --execute</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== STATS ======================== -->
+  <section>
+    <div class="stats-section wrapper">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Ideias validadas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">R$49,90</div>
+          <div class="stat-label">À vista ou 3x R$18</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">7d</div>
+          <div class="stat-label">Garantia incondicional</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">⚡</div>
+          <div class="stat-label">Acesso imediato</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FAQ ======================== -->
+  <section>
+    <div class="faq-section wrapper">
+      <p class="section-label">FAQ</p>
+      <details>
+        <summary>Recebo acesso na hora?</summary>
+        <p>Sim. Pagou, recebeu. Acesso imediato.</p>
+      </details>
+      <details>
+        <summary>As ideias são genéricas?</summary>
+        <p>Não. Cada ideia vem com nicho, dor, formato, ticket sugerido e nível de dificuldade. Nada de "crie um curso sobre culinária".</p>
+      </details>
+      <details>
+        <summary>Como as ideias foram validadas?</summary>
+        <p>São baseadas em ofertas com anúncios escalando ativamente no mercado brasileiro — semanas ou meses no ar com resultado comprovado.</p>
+      </details>
+      <details>
+        <summary>Preciso de experiência para usar?</summary>
+        <p>Não. O pack é feito para quem está começando. Filtra pelo nicho que faz sentido pra você e sai com opções prontas pra testar.</p>
+      </details>
+      <details>
+        <summary>E se eu não gostar?</summary>
+        <p>7 dias de garantia incondicional. Pediu reembolso, devolvemos sem perguntas.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ======================== CTA FINAL ======================== -->
+  <section id="oferta" style="border-top:1px solid var(--border);">
+    <div class="cta-final reveal">
+      <p class="cta-label">Acesso Imediato</p>
+      <h2>Pare de ficar na dúvida.<br><span>Comece a criar.</span></h2>
+      <div class="price-block">
+        <span class="price-old">R$97</span>
+        <span class="price-new">R$49,90</span>
+      </div>
+      <p class="price-parcel">ou 3x R$18</p>
+      <a href="SEU_LINK_CAKTO_AQUI" class="btn-cta" style="font-size:18px;padding:18px 40px;">
+        🔥 Quero as 50 Ideias — R$49,90
+      </a>
+      <br>
+      <div class="garantia">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="var(--laranja)" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 0110.382 5.04 11.95 11.95 0 01-1.12 11.121c-1.587 2.323-4.034 3.895-6.88 4.394a11.955 11.955 0 01-4.764 0c-2.846-.499-5.293-2.071-6.88-4.394a11.95 11.95 0 01-1.12-11.121A11.955 11.955 0 0112 2.944z" />
+        </svg>
+        <span>7 dias de garantia incondicional</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 50 Ideias Lucrativas. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Explorer interaction
+    const fileItems = document.querySelectorAll('.file-item');
+    const priceTag = document.getElementById('price-tag');
+    
+    fileItems.forEach(item => {
+      item.addEventListener('click', () => {
+        fileItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        
+        const price = item.getAttribute('data-price');
+        if (price === 'VITALÍCIO') {
+          priceTag.innerText = 'Acesso Vitalício';
+        } else {
+          priceTag.innerText = `R$${price} por ideia`;
+        }
+      });
+    });
+
+    // Intersection Observer for reveal animations
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.classList.add('reveal');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
